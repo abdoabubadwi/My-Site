@@ -188,6 +188,10 @@
           </li>
 
           <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Blog</button>
           </li>
 
@@ -291,10 +295,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
+                <h4 class="h4 service-item-title">Graphic Design</h4>
 
                 <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
+                  .
                 </p>
               </div>
 
@@ -756,7 +760,7 @@
 
 
       <!--
-        - #PORTFOLIO
+        - #certificates
       -->
 
             <article class="certificates" data-page="certificates">
@@ -914,6 +918,84 @@
         </section>
 
       </article>
+
+
+      <!--
+        - #Portfolio
+      -->
+
+      <article class="Portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Graphic Design</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+
+              <li class="select-item">
+                <button data-select-item>Graphic Design</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+
+            <li class="project-item  active" data-filter-item data-category="graphic design">
+              <a href="https://google.com" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/8933201.jpg" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Design For Tourism Company</h3>
+                <p class="project-category">Graphic Design</p>
+
+              </a>
+            </li>
+          </ul>
+
+        </section>
+
+      </article>
+
       <!--
         - #BLOG
       -->
@@ -1022,14 +1104,16 @@
           <form  onsubmit="sendEmail(); reset(); return false;"  class="form" data-form>
 
             <div class="input-wrapper">
-              <input id="Name" type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input id="fname" type="text" name="fisrt name" class="form-input" placeholder="fisrt name" required data-form-input>
+              <input id="lname" type="text" name="last name" class="form-input" placeholder="last name" required data-form-input>
+              <input id="phone" type="text" name="Phone Number" class="form-input" placeholder="Phone Number" required data-form-input>
 
-              <input id="Email" type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input id="email" type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
 
-            <textarea id="Message" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea id="message" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
+            <button class="form-btn" type="submit" id="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
@@ -1068,24 +1152,24 @@
   -->
 
   <script src="https://smtpjs.com/v3/smtp.js"></script>
-  ><Script>
-    function sendEmail(){
-            Email.send({
-            Host : "smtp.gmail.com",
-            Username : "abdomaile@gmail.com",
-            Password : "388100A19B40BDE4CFEC14134AADEE412CD8",
-            To : 'abdoabubadawi@gmail.com',
-            From : document.getElementById("Email").value,
-            Subject : "New Email From Site",
-            Body : "Name: " + document.getElementById("Name").value
-                  +"<br> Email:" +document.getElementById("Email").value
-                  +"Message: " + document.getElementById("Message").value
-        }).then(
-          message => alert("Message Sent Succesfully")
-        );
+  <script >
+      function sendEmail() {
 
-    }
-  </Script>
+              Email.send({
+              SecureToken : "9add367a-aa3e-4d0f-a3ac-79c9ec16e361",
+              To : 'abdoabubadawi@gmail.com',
+              From : "abdulrahmanelsayed76@gmail.com",
+              Subject : "This is the subject",
+              Body : "name : " + document.getElementById("fname").value 
+                       + document.getElementById("lname").value
+                      + "<br> Email : " + document.getElementById("email").value
+                      + "<br> Phone Number : " + document.getElementById("phone").value
+                      + "<br> Message : " + document.getElementById("message").value
+              }).then(
+              message => alert("message send ")
+              );
+      }
+  </script>
 
 
 
